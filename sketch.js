@@ -33,6 +33,8 @@ var speed = 1;
 let scaleIMG = 1;
 let scaleIMG2 = 1;
 let scaleIMG3 = 1;
+let scaleIMG4 = 1;
+let scaleIMG5 = 1;
 
 let y = frameCount;
 
@@ -59,6 +61,10 @@ function draw() {
     noStroke();
     rotate(frameCount * 20);
     rect(0, 0, 20, 50);
+
+    textSize(20);
+    text("         get ready to move your mouse", 10, 30);
+    fill(0, 102, 153);
   }
 
   if (frameCount > 225) {
@@ -91,62 +97,62 @@ function draw() {
 
     push();
     translate(width / 10, height / 2);
-    rotate((rot += speed));
+    rotate(rot + mouseY);
     line(0, 230, 0, -230);
     pop();
 
     push();
     translate((width / 10) * 2, height / 2);
-    rotate((rot2 += speed));
+    rotate(rot2 + mouseY);
     line(0, 230, 0, -230);
     pop();
 
     push();
     translate((width / 10) * 3, height / 2);
-    rotate((rot3 += speed));
+    rotate(rot3 + mouseY);
     line(0, 230, 0, -230);
     pop();
 
     push();
     translate((width / 10) * 4, height / 2);
-    rotate((rot4 += speed));
+    rotate(rot4 + mouseY);
     line(0, 230, 0, -230);
     pop();
 
     push();
     translate((width / 10) * 5, height / 2);
-    rotate((rot5 += speed));
+    rotate(rot5 + mouseY);
     line(0, 230, 0, -230);
     pop();
 
     push();
     translate((width / 10) * 6, height / 2);
-    rotate((rot6 += speed));
+    rotate(rot6 + mouseY);
     line(0, 230, 0, -230);
     pop();
 
     push();
     translate((width / 10) * 7, height / 2);
-    rotate((rot7 += speed));
+    rotate(rot7 + mouseY);
     line(0, 230, 0, -230);
     pop();
 
     push();
     translate((width / 10) * 8, height / 2);
-    rotate((rot8 += speed));
+    rotate(rot8 + mouseY);
     line(0, 230, 0, -230);
     pop();
 
     push();
     translate((width / 10) * 9, height / 2);
-    rotate((rot9 += speed));
+    rotate(rot9 + mouseY);
     line(0, 230, 0, -230);
     pop();
   }
 
   if (frameCount > 425) {
     translate(width / 2, height / 2);
-    rotate((eziorot += speed));
+    rotate(eziorot + mouseX);
     image(img, 0, 0, (width / 1000) * scaleIMG, scaleIMG);
     scaleIMG = 1 + (2 ^ (scaleIMG * 1.05));
 
@@ -159,12 +165,21 @@ function draw() {
       image(img, 0, 0, (width / 1000) * scaleIMG3, scaleIMG3);
       scaleIMG3 = 1 + (2 ^ (scaleIMG3 * 1.05));
     }
+    if (scaleIMG3 > 50000) {
+      image(img, 0, 0, (width / 1000) * scaleIMG4, scaleIMG4);
+      scaleIMG4 = 1 + (2 ^ (scaleIMG4 * 1.05));
+    }
+    if (scaleIMG4 > 50000) {
+      image(img, 0, 0, (width / 1000) * scaleIMG5, scaleIMG5);
+      scaleIMG5 = 1 + (2 ^ (scaleIMG5 * 1.05));
+    }
 
-    if (scaleIMG3 > 500000) {
+    if (scaleIMG5 > 500000) {
       scaleIMG = 1000000;
       scaleIMG2 = 1000000;
       scaleIMG3 = 1000000;
+      scaleIMG4 = 1000000;
+      scaleIMG5 = 1000000;
     }
   }
 }
-
